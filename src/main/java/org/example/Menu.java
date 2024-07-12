@@ -47,7 +47,7 @@ public class Menu {
 
             switch (value) {
                 case "1":
-                    //BinaryConverter.ConverterToBinary(scanner);
+                    AddMenu.menu(scanner);
                     break;
 
                 case "2":
