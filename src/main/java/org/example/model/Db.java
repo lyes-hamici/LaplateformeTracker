@@ -2,11 +2,13 @@ package org.example.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Db {
+    /* CLass that allow the connection with the database and execute querys */
     private static final String URL = "jdbc:mysql://localhost:3306/mon_ecole";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
@@ -47,11 +49,16 @@ public class Db {
         }
     }
 
-    public ResultSet query(String sql) {
+    public ResultSet query(String sql, String[] params) {
         ResultSet resultSet = null;
         try {
-            Statement statement = this.conn.createStatement();
-            resultSet = statement.executeQuery(sql);
+            PreparedStatement statement = this.conn.prepareStatement(sql);
+            if (params != null) {
+                for (int i = 0; i < params.length; i++) {
+                    statement.setString(i + 1, params[i]);
+                }
+            }
+            resultSet = statement.executeQuery();
         } catch (SQLException e) {
             System.err.println("Query execution failed: " + e.getMessage());
         }
