@@ -3,10 +3,8 @@ package org.example;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.example.model.Db;
-import org.example.model.UserRepo;
-import org.example.model.FileManager;
-
+import org.example.model.*;
+import org.example.view.*;
 
 public class App {
 
@@ -27,7 +25,7 @@ public class App {
 
         // End testing purposes
 
-        // Menu.menu();
+        Menu.menu();
         db.endConnection();
     }
 }
