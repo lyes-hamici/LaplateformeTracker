@@ -67,7 +67,7 @@ public class Menu {
                     break;
 
                 case "6":
-                    //TextDecipher.textDecipher(scanner);
+                    EditMenu.menu(scanner);
                     break;
 
                 case "7":
