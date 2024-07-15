@@ -51,7 +51,7 @@ public class Menu {
                     break;
 
                 case "2":
-                    //HexConverter.scanText(scanner);
+                    DeleteMenu.menu(scanner);
                     break;
 
                 case "3":
