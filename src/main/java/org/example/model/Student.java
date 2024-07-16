@@ -17,6 +17,17 @@ public class Student {
         this.grade = grade;
         this.grades = grades;
     }
+    @Override
+    public String toString() {
+        return  firstName + " " + lastName + " {" +
+                "\n id=" + id +
+                ",\n firstName='" + firstName + '\'' +
+                ",\n lastName='" + lastName + '\'' +
+                ",\n age=" + age +
+                ",\n grade='" + grade + '\'' +
+                ",\n grades=" + grades +
+                "\n}\n";
+    }
 
     // ----------------- Getters and Setters -------------------------------
     public int getId() {

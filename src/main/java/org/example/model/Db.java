@@ -65,11 +65,14 @@ public class Db {
         return resultSet;
     }
 
-    public int execute(String sql) {
+    public int execute(String sql, Object... params) {
         int result = 0;
         try {
-            Statement statement = this.conn.createStatement();
-            result = statement.executeUpdate(sql);
+            PreparedStatement preparedStatement = this.conn.prepareStatement(sql);
+            for (int i = 0; i < params.length; i++) {
+                preparedStatement.setObject(i + 1, params[i]);
+            }
+            result = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Execution failed: " + e.getMessage());
         }
