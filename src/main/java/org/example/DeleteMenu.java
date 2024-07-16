@@ -16,7 +16,7 @@ public class DeleteMenu {
         System.out.println(); // Line break
 
 
-        //call the function to add the new student
+        //call the function to remove student
 
         scanner.close();
     }
