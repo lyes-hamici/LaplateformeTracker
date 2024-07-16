@@ -78,4 +78,14 @@ public class Db {
         }
         return result;
     }
+
+    public void clearAllTables() {
+        try {
+            Statement statement = this.conn.createStatement();
+            statement.executeUpdate("DELETE FROM student");
+            statement.executeUpdate("DELETE FROM grades");
+        } catch (SQLException e) {
+            System.err.println("Failed to clear tables: " + e.getMessage());
+        }
+    }
 }

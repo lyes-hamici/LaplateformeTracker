@@ -20,5 +20,17 @@
       15,
       16
     ]
+  },
+  {
+    "id": 3,
+    "firstName": "Oroitz",
+    "lastName": "Lago Ramos",
+    "age": 24,
+    "grade": "Bachelor 1",
+    "grades": [
+      20,
+      15,
+      17
+    ]
   }
 ]

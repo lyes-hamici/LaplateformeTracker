@@ -17,26 +17,8 @@ public class App {
         UserRepo userRepo = new UserRepo(db);
         GradesRepo gradesRepo = new GradesRepo(db);
         StudentRepo studentRepo = new StudentRepo(db, gradesRepo);
-        FileManager fileManager = new FileManager(studentRepo);
+        FileManager fileManager = new FileManager(studentRepo, db);
 
-
-        // Testing purposes
-
-        boolean isValidUser = userRepo.isValidUser("root", "root");
-        if (isValidUser) {
-            System.out.println("User is valid");
-        } else {
-            System.out.println("User is not valid");
-        }
-        
-        List<Student> students = studentRepo.getAllStudents();
-        for (Student student : students ) {
-            System.out.println(student);
-        }
-
-        fileManager.exportStudentsToJson();
-
-        // End testing purposes
 
         Menu.menu();
         db.endConnection();
