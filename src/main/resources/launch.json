@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)",
+            "request": "launch",
+            "mainClass": "StudentRepo",
+            "classpath": [ "C:/Users/micka/Documents/Dev/Java/Laplateforme_Tracker/lib/mysql-connector-j-9.0.0.jar"]
+        }
+    ]
+}
