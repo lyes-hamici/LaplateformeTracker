@@ -47,11 +47,11 @@ public class Menu {
 
             switch (value) {
                 case "1":
-                    //BinaryConverter.ConverterToBinary(scanner);
+                    AddMenu.menu(scanner);
                     break;
 
                 case "2":
-                    //HexConverter.scanText(scanner);
+                    DeleteMenu.menu(scanner);
                     break;
 
                 case "3":
@@ -67,7 +67,7 @@ public class Menu {
                     break;
 
                 case "6":
-                    //TextDecipher.textDecipher(scanner);
+                    EditMenu.menu(scanner);
                     break;
 
                 case "7":
