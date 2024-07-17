@@ -9,6 +9,8 @@ public class Student {
     private String grade;
     private List<Integer> grades;
 
+    private int average;
+
     public Student(int id, String firstName, String lastName, int age, String grade, List<Integer> grades) {
         this.id = id;
         this.firstName = firstName;
@@ -16,6 +18,7 @@ public class Student {
         this.age = age;
         this.grade = grade;
         this.grades = grades;
+        this.average = 0;
     }
     @Override
     public String toString() {
@@ -77,5 +80,9 @@ public class Student {
     public void setGrades(List<Integer> grades) {
         this.grades = grades;
     }
+
+    public int getAverage() {return average;}
+
+    public void setAverage(int average) {this.average = average;}
 }
 

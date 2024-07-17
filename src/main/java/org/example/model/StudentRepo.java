@@ -50,6 +50,10 @@ public class StudentRepo {
         return students;
     }
 
+    public int getSchoolAgeAverage()
+    {
+        return 0;
+    }
 
 
     //--------------------------- ADD -----------------------//

@@ -1,10 +1,8 @@
 package org.example.view;
 
-import org.example.model.FileManager;
-import org.example.model.GradesRepo;
-import org.example.model.StudentRepo;
-import org.example.model.UserRepo;
+import org.example.model.*;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -35,7 +33,8 @@ public class Menu {
         System.out.println("4 : Display all students");
         System.out.println("5 : Import/Export data");
         System.out.println("6 : Edit a student");
-        System.out.println("7 : Quit");
+        System.out.println("7 : Show Stats");
+        System.out.println("8 : Quit");
 
         System.out.println(); // Line break
 
@@ -72,8 +71,19 @@ public class Menu {
                 case "6":
                     EditMenu.menu(scanner, studentRepo);
                     break;
-
                 case "7":
+                    System.out.println("Statistics of La Plateforme");
+                    int gradesAverage = gradesRepo.schoolAverage();
+                    int ageAverage = 0;
+                    System.out.println("Age average: " + ageAverage + " - " + "Grades average: " + gradesAverage + " / 20");
+                    List<Student> students = studentRepo.getAllStudents();
+                    for (Student student : students)
+                    {
+                        student.setAverage(gradesRepo.studentAverage(student.getId()));
+                    }
+
+
+                case "8":
                     System.out.println("-----------------------");
                     System.out.println("Looking forward to seeing you again.");
                     System.out.println("-----------------------");

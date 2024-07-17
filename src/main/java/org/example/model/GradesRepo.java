@@ -38,4 +38,12 @@ public class GradesRepo {
         String query = "INSERT INTO grades (student_id, value) VALUES (?, ?)";
         db.execute(query, studentId, value);
     }
+
+    public int schoolAverage() {
+        return 0;
+    }
+
+    public int studentAverage(int studentId) {
+        return 0;
+    }
 }
