@@ -1,5 +1,6 @@
 package org.example.view;
 
+import org.example.App;
 import org.example.model.Student;
 import org.example.model.StudentRepo;
 
@@ -18,7 +19,7 @@ public class ShowMenuAsc {
             System.out.println("4 : Sort Students by Name");
             System.out.println("5 : Sort Students by Age");
             System.out.println("6 : Sort Students by Grade");
-            System.out.println("7 : Quit");
+            System.out.println("7 : Go to the main menu");
 
             System.out.println(); // Line break
 
@@ -64,9 +65,7 @@ public class ShowMenuAsc {
 
                     case "7":
                         System.out.println("-----------------------");
-                        System.out.println("Looking forward to seeing you again.");
-                        System.out.println("-----------------------");
-                        break;
+                        Menu.menu(scanner,null,null,null);
                     default:
                         System.out.println("Invalid choice");
                         menuChoice(scanner, studentRepo);

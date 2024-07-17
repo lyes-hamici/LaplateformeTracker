@@ -1,5 +1,9 @@
 package org.example.view;
 
+import com.oracle.svm.core.posix.headers.Stat;
+import org.example.App;
+import org.example.model.FileManager;
+import org.example.model.GradesRepo;
 import org.example.model.StudentRepo;
 
 import java.util.Scanner;
@@ -15,7 +19,7 @@ public class SearchMenu {
         System.out.println("4 : Search Students by Name");
         System.out.println("5 : Search Students by Age");
         System.out.println("6 : Search Students by Grade");
-        System.out.println("7 : Quit");
+        System.out.println("7 : Go back");
 
         System.out.println(); // Line break
 
@@ -36,7 +40,7 @@ public class SearchMenu {
                     break;
 
                 case "2":
-                    //HexConverter.scanText(scanner);
+                    StatMenu.menu(scanner);
                     break;
 
                 case "3":
@@ -57,8 +61,7 @@ public class SearchMenu {
 
                 case "7":
                     System.out.println("-----------------------");
-                    System.out.println("Looking forward to seeing you again.");
-                    System.out.println("-----------------------");
+                    Menu.menu(scanner,null,null,null); //change null with a getter for each element
                     break;
                 default:
                     System.out.println("Invalid choice");
