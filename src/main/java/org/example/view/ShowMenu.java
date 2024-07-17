@@ -1,5 +1,6 @@
 package org.example.view;
 
+import org.example.App;
 import org.example.model.StudentRepo;
 
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class ShowMenu {
         System.out.println("----------------------");
         System.out.println("1 : ASC");
         System.out.println("2 : DSC");
-        System.out.println("3 : Quit");
+        System.out.println("3 : Go back");
 
 
         System.out.println(); // Line break
@@ -39,8 +40,7 @@ public class ShowMenu {
 
                 case "3":
                     System.out.println("-----------------------");
-                    System.out.println("Looking forward to seeing you again.");
-                    System.out.println("-----------------------");
+                    Menu.menu(scanner,null,null,null);
                     break;
                 default:
                     System.out.println("Invalid choice");
