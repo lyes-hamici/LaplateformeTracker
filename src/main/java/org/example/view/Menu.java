@@ -70,7 +70,7 @@ public class Menu {
                     break;
 
                 case "6":
-                    //EditMenu.menu(scanner);
+                    EditMenu.menu(scanner, studentRepo);
                     break;
 
                 case "7":

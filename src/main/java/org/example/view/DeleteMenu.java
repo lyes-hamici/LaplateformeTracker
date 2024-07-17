@@ -17,7 +17,7 @@ public class DeleteMenu {
         System.out.println(); // Line break
 
 
-        //call the function to remove student
+        studentRepo.deleteStudent(id);
 
     }
 

@@ -1,40 +1,43 @@
 package org.example.view;
 
+import org.example.model.StudentRepo;
+
 import java.util.Scanner;
 
 public class EditMenu {
-    public static void menu(Scanner scanner){
-        String Name , Firstname , Age ;
-        int Grade , id;
+    public static void menu(Scanner scanner, StudentRepo studentRepo){
+        String lastname , firstname , grade ;
+        int id, age;
         System.out.println(); // Line break
 
         System.out.println("----------------------");
         System.out.print("ID : ");
         id = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("----------------------");
-        System.out.print("New Name : ");
+        System.out.print("New lastname : ");
 
-        Name = scanner.nextLine();
-
-        System.out.println("----------------------");
-        System.out.print("New Firstname : ");
-        Firstname = scanner.nextLine();
+        lastname = scanner.nextLine();
 
         System.out.println("----------------------");
-        System.out.print("New Age : ");
-        Age = scanner.nextLine();
+        System.out.print("New firstname : ");
+        firstname = scanner.nextLine();
 
         System.out.println("----------------------");
-        System.out.print("New Grade : ");
-        Grade = scanner.nextInt();
+        System.out.print("New age : ");
+        age = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("----------------------");
+        System.out.print("New grade : ");
+        grade = scanner.nextLine();
 
 
 
         System.out.println(); // Line break
 
-
-        //call the function to Edit student
+        studentRepo.updateStudent(id,firstname,lastname, age, grade);
 
     }
 }
