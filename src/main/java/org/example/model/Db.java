@@ -11,7 +11,7 @@ public class Db {
     /* CLass that allow the connection with the database and execute querys */
     private static final String URL = "jdbc:mysql://localhost:3306/mon_ecole";
     private static final String USER = "root";
-    private static final String PASSWORD = "ZTabarax1!";
+    private static final String PASSWORD = "root!";
 
     public Connection conn;
 
