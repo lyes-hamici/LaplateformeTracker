@@ -1,38 +1,42 @@
 package org.example.view;
 
+import org.example.model.StudentRepo;
+
 import java.util.Scanner;
 
 public class AddMenu {
-    public static void menu(Scanner scanner){
-        String Name , Firstname , Age ;
-        int Grade;
+    public static void menu(Scanner scanner, StudentRepo studentRepo){
+        String lastname,firstname , grade ;
+        int age;
         System.out.println(); // Line break
         System.out.println("----------------------");
-        System.out.print("Name : ");
+        System.out.print("Firstname : ");
 
-        Name = scanner.nextLine();
+        firstname = scanner.nextLine();
+        firstname = firstname.trim();
 
         System.out.println("----------------------");
-        System.out.print("Firstname : ");
-        Firstname = scanner.nextLine();
+        System.out.print("Lastname : ");
+
+        lastname = scanner.nextLine();
+        lastname = lastname.trim();
 
         System.out.println("----------------------");
         System.out.print("Age : ");
-        Age = scanner.nextLine();
+        age = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("----------------------");
         System.out.print("Grade : ");
-        Grade = scanner.nextInt();
+        grade = scanner.nextLine();
+        grade = grade.trim();
 
 
 
         System.out.println(); // Line break
 
 
-        //call the function to add the new student
-
-        scanner.close();
+        studentRepo.addStudent(firstname, lastname, age, grade);
+        System.out.println("Etudiant ajouté avec succés");
     }
-
-
 }

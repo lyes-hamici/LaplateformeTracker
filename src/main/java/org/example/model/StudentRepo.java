@@ -55,7 +55,7 @@ public class StudentRepo {
     //--------------------------- ADD -----------------------//
     public void addStudent(String firstname, String lastname, int age, String grade) {
         String query = "INSERT INTO student (first_name, last_name, age, grade) VALUES (?, ?, ?, ?)";
-        db.execute(query, firstname, lastname, age, grade); // Directly passing arguments without creating an array
+        db.execute(query, firstname, lastname, age, grade);
     }
 
     //--------------------------- UPDATE -----------------------//

@@ -1,11 +1,13 @@
 package org.example.view;
 
 
+import org.example.model.UserRepo;
+
 import java.util.Scanner;
 
 public class LoginMenu {
-    public static void menu() {
-
+    public static void menu(Scanner scanner, UserRepo userRepo) {
+        boolean isValid = false;
         String passwd , username;
 
         String text = "La Plateforme_ Tracker";
@@ -27,13 +29,19 @@ public class LoginMenu {
             System.out.print("*");
         }
         System.out.println();
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Username : ");
-        username = scanner.nextLine();
+        while (!isValid)
+        {
+            System.out.print("Username : ");
+            username = scanner.nextLine();
 
-        System.out.println("-------------------");
-        System.out.print("Password : ");
-        passwd = scanner.nextLine();
+            System.out.println("-------------------");
+            System.out.print("Password : ");
+            passwd = scanner.nextLine();
+
+            isValid = userRepo.isValidUser(username, passwd);
+            System.out.println((!isValid) ? "Invalid username or password. Please restart" : "Bienvenue");
+        }
+
     }
 }

@@ -8,6 +8,7 @@ import org.example.view.*;
 
 // import com.oracle.svm.core.option.APIOption.List;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class App {
@@ -19,8 +20,10 @@ public class App {
         StudentRepo studentRepo = new StudentRepo(db, gradesRepo);
         FileManager fileManager = new FileManager(studentRepo, db);
 
-
-        Menu.menu();
+        Scanner scanner = new Scanner(System.in);
+        LoginMenu.menu(scanner, userRepo);
+        Menu.menu(scanner, gradesRepo, studentRepo,fileManager);
         db.endConnection();
+        scanner.close();
     }
 }

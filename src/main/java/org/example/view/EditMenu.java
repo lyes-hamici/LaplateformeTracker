@@ -36,6 +36,5 @@ public class EditMenu {
 
         //call the function to Edit student
 
-        scanner.close();
     }
 }

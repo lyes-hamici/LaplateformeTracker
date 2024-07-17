@@ -1,10 +1,14 @@
 package org.example.view;
 
+import org.example.model.Student;
+import org.example.model.StudentRepo;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class ShowMenuAsc {
 
-        public static void menu(Scanner scanner){
+        public static void menu(Scanner scanner, StudentRepo studentRepo){
 
             System.out.println(); // Line break
             System.out.println("----------------------");
@@ -19,19 +23,23 @@ public class ShowMenuAsc {
             System.out.println(); // Line break
 
 
-            menuChoice(scanner);
+            menuChoice(scanner, studentRepo);
 
             scanner.close();
         }
 
-        public static void menuChoice(Scanner scanner) {
+        public static void menuChoice(Scanner scanner, StudentRepo studentRepo) {
             try {
                 System.out.print("Your choice: ");
                 String value = scanner.nextLine();
 
                 switch (value) {
                     case "1":
-                        //BinaryConverter.ConverterToBinary(scanner);
+                        List< Student > students = studentRepo.getAllStudents();
+                        for (Student student : students)
+                        {
+                            System.out.println(student);
+                        }
                         break;
 
                     case "2":
@@ -61,7 +69,7 @@ public class ShowMenuAsc {
                         break;
                     default:
                         System.out.println("Invalid choice");
-                        menuChoice(scanner);
+                        menuChoice(scanner, studentRepo);
                         break;
                 }
             } catch (Exception ex) {

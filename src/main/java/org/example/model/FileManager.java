@@ -61,7 +61,6 @@ public class FileManager {
                 String lastname = (String) student.get("lastName");
                 long age = (long) student.get("age"); // JSON.simple treats numbers as longs
                 String grade = (String) student.get("grade");
-
                 // Assuming addStudent method exists and inserts data into the database
                 this.studentRepo.addStudent(firstname, lastname, (int) age, grade);
             }

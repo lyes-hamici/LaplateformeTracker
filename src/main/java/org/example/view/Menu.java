@@ -1,9 +1,14 @@
 package org.example.view;
 
+import org.example.model.FileManager;
+import org.example.model.GradesRepo;
+import org.example.model.StudentRepo;
+import org.example.model.UserRepo;
+
 import java.util.Scanner;
 
 public class Menu {
-    public static void menu(){
+    public static void menu(Scanner scanner, GradesRepo gradesRepo, StudentRepo studentRepo, FileManager fileManager){
         String text = "La Plateforme_ Tracker";
 
         int textLength = text.length();
@@ -34,40 +39,38 @@ public class Menu {
 
         System.out.println(); // Line break
 
-        Scanner scanner = new Scanner(System.in);
-        menuChoice(scanner);
+        menuChoice(scanner, gradesRepo, studentRepo,fileManager);
 
-        scanner.close();
     }
 
-    public static void menuChoice(Scanner scanner) {
+    public static void menuChoice(Scanner scanner, GradesRepo gradesRepo, StudentRepo studentRepo, FileManager fileManager) {
         try {
             System.out.print("Your choice: ");
             String value = scanner.nextLine();
 
             switch (value) {
                 case "1":
-                    AddMenu.menu(scanner);
+                    AddMenu.menu(scanner,studentRepo);
                     break;
 
                 case "2":
-                    DeleteMenu.menu(scanner);
+                    DeleteMenu.menu(scanner, studentRepo);
                     break;
 
                 case "3":
-                    SearchMenu.menu(scanner);
+                    //SearchMenu.menu(scanner, studentRepo);
                     break;
 
                 case "4":
-                    ShowMenu.menu(scanner);
+                    ShowMenu.menu(scanner, studentRepo);
                     break;
 
                 case "5":
-                    ImportExportMenu.menu(scanner);
+                    //ImportExportMenu.menu(scanner);
                     break;
 
                 case "6":
-                    EditMenu.menu(scanner);
+                    //EditMenu.menu(scanner);
                     break;
 
                 case "7":
@@ -77,7 +80,7 @@ public class Menu {
                     break;
                 default:
                     System.out.println("Invalid choice");
-                    menuChoice(scanner);
+                    //menuChoice(scanner);
                     break;
             }
         } catch (Exception ex) {
