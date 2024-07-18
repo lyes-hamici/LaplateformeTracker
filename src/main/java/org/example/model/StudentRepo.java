@@ -19,9 +19,9 @@ public class StudentRepo {
     }
 
     //---------------------------- Get Students -------------------------//
-    public List<Student> getAllStudents() {
+    public List<Student> getResult(String query)
+    {
         List<Student> students = new ArrayList<>();
-        String query = "SELECT * FROM student";
         ResultSet rs = db.query(query, null);
         try {
             while (rs.next()) {
@@ -54,6 +54,48 @@ public class StudentRepo {
     {
         return 0;
     }
+    //--------------------------- ASC -----------------------//
+    public List<Student> ASCFirstName() {
+        String query = "SELECT * FROM student ORDER BY first_name ASC";
+        return getResult(query);
+    }
+
+    public List<Student> ASCLastName() {
+        String query = "SELECT * FROM student ORDER BY last_name ASC";
+        return getResult(query);
+    }
+
+    public List<Student> ASCAge() {
+        String query = "SELECT * FROM student ORDER BY age ASC";
+        return getResult(query);
+    }
+
+    public List<Student> ASCGrade() {
+        String query = "SELECT * FROM student ORDER BY grade ASC";
+        return getResult(query);
+    }
+
+    //--------------------------- DSC -----------------------//
+    public List<Student> DSCFirstName() {
+        String query = "SELECT * FROM student ORDER BY first_name DSC";
+        return getResult(query);
+    }
+
+    public List<Student> DSCLastName() {
+        String query = "SELECT * FROM student ORDER BY last_name DSC";
+        return getResult(query);
+    }
+
+    public List<Student> DSCAge() {
+        String query = "SELECT * FROM student ORDER BY age DSC";
+        return getResult(query);
+    }
+
+    public List<Student> DSCGrade() {
+        String query = "SELECT * FROM student ORDER BY grade DSC";
+        return getResult(query);
+    }
+
 
 
     //--------------------------- ADD -----------------------//
