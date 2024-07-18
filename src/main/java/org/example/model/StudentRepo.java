@@ -19,10 +19,10 @@ public class StudentRepo {
     }
 
     //---------------------------- Get Students -------------------------//
-    public List<Student> getResult(String query)
+    public List<Student> getResult(String query, String[] params )
     {
         List<Student> students = new ArrayList<>();
-        ResultSet rs = db.query(query, null);
+        ResultSet rs = db.query(query, params);
         try {
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -74,76 +74,80 @@ public class StudentRepo {
 
     public List<Student> getAllStudents() {
         String query = "SELECT * FROM student";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     public List<Student> getAllStudentsDESC() {
         String query = "SELECT * FROM student ORDER BY id DESC";
-        return getResult(query);
+        return getResult(query, null);
     }
 //----------------------------- SORTING ------------------------------------//
     //--------------------------- ASC -----------------------//
     public List<Student> ASCFirstName() {
         String query = "SELECT * FROM student ORDER BY first_name ASC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     public List<Student> ASCLastName() {
         String query = "SELECT * FROM student ORDER BY last_name ASC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     public List<Student> ASCAge() {
         String query = "SELECT * FROM student ORDER BY age ASC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     public List<Student> ASCGrade() {
         String query = "SELECT * FROM student ORDER BY grade ASC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     //--------------------------- DSC -----------------------//
     public List<Student> DSCFirstName() {
         String query = "SELECT * FROM student ORDER BY first_name DESC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     public List<Student> DSCLastName() {
         String query = "SELECT * FROM student ORDER BY last_name DESC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     public List<Student> DSCAge() {
         String query = "SELECT * FROM student ORDER BY age DESC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
     public List<Student> DSCGrade() {
         String query = "SELECT * FROM student ORDER BY grade DESC";
-        return getResult(query);
+        return getResult(query, null);
     }
 
 //-------------------------------------------SEARCH-----------------------------//
 
     public List<Student> searchStudentAge(int age) {
         String query = "SELECT * FROM student WHERE age = ?";
-        return getResult(query);
+        String[] params = {String.valueOf(age)};
+        return getResult(query, params);
     }
 
     public List<Student> searchStudentGrade(String grade) {
         String query = "SELECT * FROM student WHERE grade = ?";
-        return getResult(query);
+        String[] params = {grade};
+        return getResult(query, params);
     }
 
     public List<Student> searchStudentFirstName(String firstName) {
         String query = "SELECT * FROM student WHERE first_name = ?";
-        return getResult(query);
+        String[] params = {firstName};
+        return getResult(query, params);
     }
 
     public List<Student> searchStudentLastName(String lastName) {
         String query = "SELECT * FROM student WHERE last_name = ?";
-        return getResult(query);
+        String[] params = {lastName};
+        return getResult(query, params);
     }
 
     //--------------------------- ADD -----------------------//
