@@ -5,7 +5,7 @@ import org.example.model.StudentRepo;
 import java.util.Scanner;
 
 public class DeleteMenu {
-    public static void menu(Scanner scanner, StudentRepo studentRepo){
+    public static void menu(Scanner scanner){
         int id;
         System.out.println(); // Line break
         System.out.println("----------------------");

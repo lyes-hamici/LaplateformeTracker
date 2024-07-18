@@ -38,22 +38,22 @@ public class Menu {
 
         System.out.println(); // Line break
 
-        menuChoice(scanner, gradesRepo, studentRepo,fileManager);
+        menuChoice(scanner);
 
     }
 
-    public static void menuChoice(Scanner scanner, GradesRepo gradesRepo, StudentRepo studentRepo, FileManager fileManager) {
+    public static void menuChoice(Scanner scanner) {
         try {
             System.out.print("Your choice: ");
             String value = scanner.nextLine();
 
             switch (value) {
                 case "1":
-                    AddMenu.menu(scanner,studentRepo);
+                    AddMenu.menu(scanner);
                     break;
 
                 case "2":
-                    DeleteMenu.menu(scanner, studentRepo);
+                    DeleteMenu.menu(scanner);
                     break;
 
                 case "3":
@@ -61,7 +61,7 @@ public class Menu {
                     break;
 
                 case "4":
-                    ShowMenu.menu(scanner, studentRepo);
+                    ShowMenu.menu(scanner);
                     break;
 
                 case "5":
@@ -90,7 +90,7 @@ public class Menu {
                     break;
                 default:
                     System.out.println("Invalid choice");
-                    //menuChoice(scanner);
+                    menuChoice(scanner);
                     break;
             }
         } catch (Exception ex) {
