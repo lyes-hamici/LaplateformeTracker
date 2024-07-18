@@ -1,5 +1,7 @@
 package org.example.view;
 
+import org.example.PublicInstances;
+
 import java.util.Scanner;
 
 public class StatMenu {
@@ -25,7 +27,8 @@ public class StatMenu {
 
             switch (value) {
                 case "1":
-                    //BinaryConverter.ConverterToBinary(scanner);
+                    double gradesAverage = PublicInstances.gradesRepo.schoolAverage();
+                    System.out.println("The grades average of the school is " + gradesAverage + " / 20");
                     break;
 
                 case "2":
@@ -33,7 +36,8 @@ public class StatMenu {
                     break;
 
                 case "3":
-                    //OctalConverter.ConverterToOctal(scanner);
+                    int ageAverage = PublicInstances.studentRepo.getSchoolAgeAverage();
+                    System.out.println("The age average of the school is " + ageAverage + " years");
                     break;
 
 
@@ -47,6 +51,7 @@ public class StatMenu {
                     menuChoice(scanner);
                     break;
             }
+            Menu.menu(scanner);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

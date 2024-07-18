@@ -46,22 +46,27 @@ public class FileManager {
         JSONParser parser = new JSONParser();
 
         try {
-            // Step 1: Read JSON file into String
             String content = new String(Files.readAllBytes(Paths.get(filePath)));
 
-            // Step 2: Parse JSON string to JSONArray
             Object obj = parser.parse(content);
             JSONArray studentsArray = (JSONArray) obj;
 
-            // Step 3 & 4: Extract data and insert into database
             for (Object o : studentsArray) {
                 JSONObject student = (JSONObject) o;
+                long id = (long) student.get("id");
                 String firstname = (String) student.get("firstName");
                 String lastname = (String) student.get("lastName");
-                long age = (long) student.get("age"); // JSON.simple treats numbers as longs
+                long age = (long) student.get("age"); 
                 String grade = (String) student.get("grade");
-                // Assuming addStudent method exists and inserts data into the database
+                JSONArray grades = (JSONArray) student.get("grades");
+
                 PublicInstances.studentRepo.addStudent(firstname, lastname, (int) age, grade);
+
+                for (Object g : grades) {
+                    int gradeValue = ((Long) g).intValue();
+                    // Assuming addGrade method exists and inserts grade into the grades table
+                    PublicInstances.gradesRepo.addGrade((int) id, gradeValue);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

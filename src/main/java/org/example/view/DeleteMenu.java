@@ -20,7 +20,8 @@ public class DeleteMenu {
 
 
         PublicInstances.studentRepo.deleteStudent(id);
-
+        System.out.println("Student deleted successfully");
+        Menu.menu(scanner);
     }
 
 }

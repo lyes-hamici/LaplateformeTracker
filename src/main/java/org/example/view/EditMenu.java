@@ -40,6 +40,8 @@ public class EditMenu {
         System.out.println(); // Line break
 
         PublicInstances.studentRepo.updateStudent(id,firstname,lastname, age, grade);
+        System.out.println("Student edited successfully");
+        Menu.menu(scanner);
 
     }
 }

@@ -13,11 +13,10 @@ public class SearchMenu {
 
         System.out.println(); // Line break
         System.out.println("----------------------");
-        System.out.println("1 : Show all students");
-        System.out.println("3 : Search Students by Firstname");
-        System.out.println("4 : Search Students by Name");
-        System.out.println("5 : Search Students by Age");
-        System.out.println("6 : Search Students by Grade");
+        System.out.println("3 : Search Students by firstname");
+        System.out.println("4 : Search Students by lastname");
+        System.out.println("5 : Search Students by age");
+        System.out.println("6 : Search Students by grade");
         System.out.println("7 : Go back");
 
         System.out.println(); // Line break
@@ -32,10 +31,6 @@ public class SearchMenu {
             String value = scanner.nextLine();
 
             switch (value) {
-                case "1":
-                    //BinaryConverter.ConverterToBinary(scanner);
-                    break;
-
                 case "3":
                     //OctalConverter.ConverterToOctal(scanner);
                     break;

@@ -84,6 +84,8 @@ public class Db {
             Statement statement = this.conn.createStatement();
             statement.executeUpdate("DELETE FROM student");
             statement.executeUpdate("DELETE FROM grades");
+            statement.executeUpdate("ALTER TABLE student AUTO_INCREMENT = 1");
+            statement.executeUpdate("ALTER TABLE grades AUTO_INCREMENT = 1");
         } catch (SQLException e) {
             System.err.println("Failed to clear tables: " + e.getMessage());
         }

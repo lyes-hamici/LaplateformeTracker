@@ -1,5 +1,7 @@
 package org.example.view;
 
+import org.example.PublicInstances;
+
 import java.util.Scanner;
 
 public class ImportExportMenu {
@@ -25,11 +27,11 @@ public class ImportExportMenu {
 
             switch (value) {
                 case "1":
-                    //call import function
+                    PublicInstances.fileManager.importStudentsFromJson();
                     break;
 
                 case "2":
-                    //call export function
+                    PublicInstances.fileManager.exportStudentsToJson();
                     break;
 
 

@@ -1,26 +1,29 @@
 [
   {
-    "id": 12,
+    "id": 18,
     "firstName": "John",
     "lastName": "Smith",
     "age": 350,
     "grade": "A",
-    "grades": []
+    "grades": [],
+    "average": 0
   },
   {
-    "id": 13,
+    "id": 19,
     "firstName": "Sara",
     "lastName": "Jane",
     "age": 22,
     "grade": "B",
-    "grades": []
+    "grades": [],
+    "average": 0
   },
   {
-    "id": 14,
+    "id": 20,
     "firstName": "Oroitz",
     "lastName": "Lago Ramos",
     "age": 24,
     "grade": "Bachelor 1",
-    "grades": []
+    "grades": [],
+    "average": 0
   }
 ]

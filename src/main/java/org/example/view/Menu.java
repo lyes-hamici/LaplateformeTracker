@@ -53,7 +53,7 @@ public class Menu {
                     break;
 
                 case "3":
-                    SearchMenu.menu(scanner);
+                    SearchMenu.menu(scanner); // A FAIREEEEEEEEEEEEE
                     break;
 
                 case "4":

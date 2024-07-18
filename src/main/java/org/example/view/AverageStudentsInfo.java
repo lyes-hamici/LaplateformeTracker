@@ -1,5 +1,7 @@
 package org.example.view;
 
+import org.example.PublicInstances;
+
 import java.util.Scanner;
 
 public class AverageStudentsInfo {
@@ -10,16 +12,11 @@ public class AverageStudentsInfo {
         System.out.println("----------------------");
         System.out.print("ID of the student : ");
         id = scanner.nextInt();
-
-
-
-
-
+        scanner.nextLine();
 
         System.out.println(); // Line break
 
-
-        //call the function to Edit student
-        Menu.menu(scanner);
+        double studentAverage = PublicInstances.gradesRepo.studentAverage(id);
+        System.out.println("Grades average for student is " + studentAverage + " / 20");
     }
 }

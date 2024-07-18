@@ -50,10 +50,38 @@ public class StudentRepo {
         return students;
     }
 
-    public int getSchoolAgeAverage()
-    {
-        return 0;
+    public int getSchoolAgeAverage() {
+        String query = "SELECT AVG(age) FROM student";
+        ResultSet rs = db.query(query, null);
+        int averageAge = 0;
+        try {
+            if (rs.next()) {
+                averageAge = (int) Math.round(rs.getDouble(1));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error processing the result set: " + e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.err.println("Failed to close the ResultSet: " + e.getMessage());
+                }
+            }
+        }
+        return averageAge;
     }
+
+    public List<Student> getAllStudents() {
+        String query = "SELECT * FROM student";
+        return getResult(query);
+    }
+
+    public List<Student> getAllStudentsDESC() {
+        String query = "SELECT * FROM student ORDER BY id DESC";
+        return getResult(query);
+    }
+//----------------------------- SORTING ------------------------------------//
     //--------------------------- ASC -----------------------//
     public List<Student> ASCFirstName() {
         String query = "SELECT * FROM student ORDER BY first_name ASC";
@@ -77,24 +105,26 @@ public class StudentRepo {
 
     //--------------------------- DSC -----------------------//
     public List<Student> DSCFirstName() {
-        String query = "SELECT * FROM student ORDER BY first_name DSC";
+        String query = "SELECT * FROM student ORDER BY first_name DESC";
         return getResult(query);
     }
 
     public List<Student> DSCLastName() {
-        String query = "SELECT * FROM student ORDER BY last_name DSC";
+        String query = "SELECT * FROM student ORDER BY last_name DESC";
         return getResult(query);
     }
 
     public List<Student> DSCAge() {
-        String query = "SELECT * FROM student ORDER BY age DSC";
+        String query = "SELECT * FROM student ORDER BY age DESC";
         return getResult(query);
     }
 
     public List<Student> DSCGrade() {
-        String query = "SELECT * FROM student ORDER BY grade DSC";
+        String query = "SELECT * FROM student ORDER BY grade DESC";
         return getResult(query);
     }
+
+//-------------------------------------------SEARCH-----------------------------//
 
 
 

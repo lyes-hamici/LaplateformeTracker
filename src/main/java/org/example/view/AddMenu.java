@@ -35,7 +35,7 @@ public class AddMenu {
 
 
         PublicInstances.studentRepo.addStudent(firstname, lastname, age, grade);
-        System.out.println("Etudiant ajouté avec succés");
+        System.out.println("Student added successfully");
 
         Menu.menu(scanner);
     }
