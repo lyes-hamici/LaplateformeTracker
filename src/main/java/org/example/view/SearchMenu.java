@@ -57,7 +57,7 @@ public class SearchMenu {
 
                 case "5":
                     System.out.println("-----------------------");
-                    Menu.menu(scanner); //change null with a getter for each element
+                    Menu.menu(scanner);
                     break;
                 default:
                     System.out.println("Invalid choice");
