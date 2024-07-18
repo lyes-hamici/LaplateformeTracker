@@ -27,7 +27,7 @@ public class Db {
 
             // Establish the connection
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connection established successfully!");
+            //System.out.println("Connection established successfully!");
 
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver not found: " + e.getMessage());
