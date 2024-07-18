@@ -126,7 +126,25 @@ public class StudentRepo {
 
 //-------------------------------------------SEARCH-----------------------------//
 
+    public List<Student> searchStudentAge(int age) {
+        String query = "SELECT * FROM student WHERE age = ?";
+        return getResult(query);
+    }
 
+    public List<Student> searchStudentGrade(String grade) {
+        String query = "SELECT * FROM student WHERE grade = ?";
+        return getResult(query);
+    }
+
+    public List<Student> searchStudentFirstName(String firstName) {
+        String query = "SELECT * FROM student WHERE first_name = ?";
+        return getResult(query);
+    }
+
+    public List<Student> searchStudentLastName(String lastName) {
+        String query = "SELECT * FROM student WHERE last_name = ?";
+        return getResult(query);
+    }
 
     //--------------------------- ADD -----------------------//
     public void addStudent(String firstname, String lastname, int age, String grade) {
