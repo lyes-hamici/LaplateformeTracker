@@ -1,11 +1,12 @@
 package org.example.view;
 
+import org.example.App;
 import org.example.model.StudentRepo;
 
 import java.util.Scanner;
 
 public class AddMenu {
-    public static void menu(Scanner scanner, StudentRepo studentRepo){
+    public static void menu(Scanner scanner){
         String lastname,firstname , grade ;
         int age;
         System.out.println(); // Line break
@@ -36,7 +37,7 @@ public class AddMenu {
         System.out.println(); // Line break
 
 
-        studentRepo.addStudent(firstname, lastname, age, grade);
+        App.studentRepo.addStudent(firstname, lastname, age, grade);
         System.out.println("Etudiant ajouté avec succés");
     }
 }

@@ -12,17 +12,21 @@ import java.util.Scanner;
 
 
 public class App {
+    public static UserRepo userRepo;
+    public static GradesRepo gradesRepo;
+    public static StudentRepo studentRepo;
+    public static FileManager fileManager;
 
     public static void main(String[] args) throws Exception {
         Db db = new Db();
-        UserRepo userRepo = new UserRepo(db);
-        GradesRepo gradesRepo = new GradesRepo(db);
-        StudentRepo studentRepo = new StudentRepo(db, gradesRepo);
-        FileManager fileManager = new FileManager(studentRepo, db);
+        userRepo = new UserRepo(db);
+        gradesRepo = new GradesRepo(db);
+        studentRepo = new StudentRepo(db, gradesRepo);
+        fileManager = new FileManager(studentRepo, db);
 
         Scanner scanner = new Scanner(System.in);
         LoginMenu.menu(scanner, userRepo);
-        Menu.menu(scanner, gradesRepo, studentRepo,fileManager);
+        Menu.menu(scanner);
         db.endConnection();
         scanner.close();
     }
