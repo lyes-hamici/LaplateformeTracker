@@ -15,11 +15,11 @@ public class ShowMenuAsc {
             System.out.println(); // Line break
             System.out.println("----------------------");
             System.out.println("1 : Show all students");
-            System.out.println("3 : Sort Students by firstname");
-            System.out.println("4 : Sort Students by lastname");
-            System.out.println("5 : Sort Students by age");
-            System.out.println("6 : Sort Students by grade");
-            System.out.println("7 : Go to the main menu");
+            System.out.println("2 : Sort Students by firstname");
+            System.out.println("3 : Sort Students by lastname");
+            System.out.println("4 : Sort Students by age");
+            System.out.println("5 : Sort Students by grade");
+            System.out.println("6 : Go to the main menu");
 
             System.out.println(); // Line break
 
@@ -38,23 +38,23 @@ public class ShowMenuAsc {
                         students = PublicInstances.studentRepo.getAllStudents();
                         break;
 
-                    case "3":
+                    case "2":
                         students = PublicInstances.studentRepo.ASCFirstName();
                         break;
 
-                    case "4":
+                    case "3":
                         students = PublicInstances.studentRepo.ASCLastName();
                         break;
 
-                    case "5":
+                    case "4":
                         students = PublicInstances.studentRepo.ASCAge();
                         break;
 
-                    case "6":
+                    case "5":
                         students = PublicInstances.studentRepo.ASCGrade();
                         break;
 
-                    case "7":
+                    case "6":
                         System.out.println("-----------------------");
                         Menu.menu(scanner);
                         break;
