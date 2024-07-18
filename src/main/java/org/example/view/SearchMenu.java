@@ -1,7 +1,7 @@
 package org.example.view;
 
 import com.oracle.svm.core.posix.headers.Stat;
-import org.example.App;
+
 import org.example.model.FileManager;
 import org.example.model.GradesRepo;
 import org.example.model.StudentRepo;
@@ -9,12 +9,11 @@ import org.example.model.StudentRepo;
 import java.util.Scanner;
 
 public class SearchMenu {
-    public static void menu(Scanner scanner, StudentRepo studentRepo){
+    public static void menu(Scanner scanner){
 
         System.out.println(); // Line break
         System.out.println("----------------------");
         System.out.println("1 : Show all students");
-        System.out.println("2 : Search Students by stats");
         System.out.println("3 : Search Students by Firstname");
         System.out.println("4 : Search Students by Name");
         System.out.println("5 : Search Students by Age");
@@ -24,12 +23,10 @@ public class SearchMenu {
         System.out.println(); // Line break
 
 
-        menuChoice(scanner, studentRepo);
-
-        scanner.close();
+        menuChoice(scanner);
     }
 
-    public static void menuChoice(Scanner scanner, StudentRepo studentRepo) {
+    public static void menuChoice(Scanner scanner) {
         try {
             System.out.print("Your choice: ");
             String value = scanner.nextLine();
@@ -37,10 +34,6 @@ public class SearchMenu {
             switch (value) {
                 case "1":
                     //BinaryConverter.ConverterToBinary(scanner);
-                    break;
-
-                case "2":
-                    StatMenu.menu(scanner);
                     break;
 
                 case "3":
@@ -61,11 +54,11 @@ public class SearchMenu {
 
                 case "7":
                     System.out.println("-----------------------");
-                    Menu.menu(scanner,null,null,null); //change null with a getter for each element
+                    Menu.menu(scanner); //change null with a getter for each element
                     break;
                 default:
                     System.out.println("Invalid choice");
-                    menuChoice(scanner, studentRepo);
+                    menuChoice(scanner);
                     break;
             }
         } catch (Exception ex) {

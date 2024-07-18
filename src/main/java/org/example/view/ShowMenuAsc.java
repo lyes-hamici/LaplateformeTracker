@@ -1,15 +1,15 @@
 package org.example.view;
 
-import org.example.App;
+
+import org.example.PublicInstances;
 import org.example.model.Student;
-import org.example.model.StudentRepo;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class ShowMenuAsc {
 
-        public static void menu(Scanner scanner, StudentRepo studentRepo){
+        public static void menu(Scanner scanner){
 
             System.out.println(); // Line break
             System.out.println("----------------------");
@@ -24,19 +24,17 @@ public class ShowMenuAsc {
             System.out.println(); // Line break
 
 
-            menuChoice(scanner, studentRepo);
-
-            scanner.close();
+            menuChoice(scanner);
         }
 
-        public static void menuChoice(Scanner scanner, StudentRepo studentRepo) {
+        public static void menuChoice(Scanner scanner) {
             try {
                 System.out.print("Your choice: ");
                 String value = scanner.nextLine();
 
                 switch (value) {
                     case "1":
-                        List< Student > students = studentRepo.getAllStudents();
+                        List< Student > students = PublicInstances.studentRepo.getAllStudents();
                         for (Student student : students)
                         {
                             System.out.println(student);
@@ -65,12 +63,14 @@ public class ShowMenuAsc {
 
                     case "7":
                         System.out.println("-----------------------");
-                        Menu.menu(scanner,null,null,null);
+                        Menu.menu(scanner);
+                        break;
                     default:
                         System.out.println("Invalid choice");
-                        menuChoice(scanner, studentRepo);
+                        menuChoice(scanner);
                         break;
                 }
+                Menu.menu(scanner);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

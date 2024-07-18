@@ -6,7 +6,7 @@ import org.example.model.StudentRepo;
 import java.util.Scanner;
 
 public class ShowMenu {
-    public static void menu(Scanner scanner, StudentRepo studentRepo){
+    public static void menu(Scanner scanner){
 
         System.out.println(); // Line break
         System.out.println("----------------------");
@@ -18,33 +18,31 @@ public class ShowMenu {
         System.out.println(); // Line break
 
 
-        menuChoice(scanner, studentRepo);
-
-        scanner.close();
+        menuChoice(scanner);
     }
 
-    public static void menuChoice(Scanner scanner, StudentRepo studentRepo) {
+    public static void menuChoice(Scanner scanner) {
         try {
             System.out.print("Your choice: ");
             String value = scanner.nextLine();
 
             switch (value) {
                 case "1":
-                    ShowMenuAsc.menu(scanner, studentRepo);
+                    ShowMenuAsc.menu(scanner);
                     break;
 
                 case "2":
-                    ShowMenuDsc.menu(scanner, studentRepo);
+                    ShowMenuDsc.menu(scanner);
                     break;
 
 
                 case "3":
                     System.out.println("-----------------------");
-                    Menu.menu(scanner,null,null,null);
+                    Menu.menu(scanner);
                     break;
                 default:
                     System.out.println("Invalid choice");
-                    menuChoice(scanner, studentRepo);
+                    menuChoice(scanner);
                     break;
             }
         } catch (Exception ex) {

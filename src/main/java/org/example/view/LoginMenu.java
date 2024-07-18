@@ -1,12 +1,13 @@
 package org.example.view;
 
 
+import org.example.PublicInstances;
 import org.example.model.UserRepo;
 
 import java.util.Scanner;
 
 public class LoginMenu {
-    public static void menu(Scanner scanner, UserRepo userRepo) {
+    public static void menu(Scanner scanner) {
         boolean isValid = false;
         String passwd , username;
 
@@ -39,7 +40,7 @@ public class LoginMenu {
             System.out.print("Password : ");
             passwd = scanner.nextLine();
 
-            isValid = userRepo.isValidUser(username, passwd);
+            isValid = PublicInstances.userRepo.isValidUser(username, passwd);
             System.out.println((!isValid) ? "Invalid username or password. Please restart" : "Bienvenue");
         }
 

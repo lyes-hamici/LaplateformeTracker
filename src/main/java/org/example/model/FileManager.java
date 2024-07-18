@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.example.PublicInstances;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,16 +21,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class FileManager {
-    private StudentRepo studentRepo;
     private Db db;
 
-    public FileManager(StudentRepo studentRepo, Db db) {
-        this.studentRepo = studentRepo;
+    public FileManager(Db db) {
         this.db = db;
     }
 
     public void exportStudentsToJson() {
-        List<Student> students = studentRepo.getAllStudents();
+        List<Student> students = PublicInstances.studentRepo.getAllStudents();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(students);
 
@@ -62,7 +61,7 @@ public class FileManager {
                 long age = (long) student.get("age"); // JSON.simple treats numbers as longs
                 String grade = (String) student.get("grade");
                 // Assuming addStudent method exists and inserts data into the database
-                this.studentRepo.addStudent(firstname, lastname, (int) age, grade);
+                PublicInstances.studentRepo.addStudent(firstname, lastname, (int) age, grade);
             }
         } catch (Exception e) {
             e.printStackTrace();

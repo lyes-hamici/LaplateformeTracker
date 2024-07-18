@@ -1,8 +1,5 @@
 package org.example.view;
-
-import org.example.App;
-import org.example.model.StudentRepo;
-
+import org.example.PublicInstances;
 import java.util.Scanner;
 
 public class AddMenu {
@@ -37,7 +34,9 @@ public class AddMenu {
         System.out.println(); // Line break
 
 
-        App.studentRepo.addStudent(firstname, lastname, age, grade);
+        PublicInstances.studentRepo.addStudent(firstname, lastname, age, grade);
         System.out.println("Etudiant ajouté avec succés");
+
+        Menu.menu(scanner);
     }
 }

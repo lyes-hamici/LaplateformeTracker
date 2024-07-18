@@ -16,8 +16,6 @@ public class ImportExportMenu {
 
 
         menuChoice(scanner);
-
-        scanner.close();
     }
 
     public static void menuChoice(Scanner scanner) {
@@ -45,6 +43,7 @@ public class ImportExportMenu {
                     menuChoice(scanner);
                     break;
             }
+            Menu.menu(scanner);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

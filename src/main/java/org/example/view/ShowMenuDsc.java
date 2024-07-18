@@ -1,12 +1,11 @@
 package org.example.view;
 
-import org.example.App;
 import org.example.model.StudentRepo;
 
 import java.util.Scanner;
 
 public class ShowMenuDsc {
-    public static void menu(Scanner scanner, StudentRepo studentRepo){
+    public static void menu(Scanner scanner){
 
         System.out.println(); // Line break
         System.out.println("----------------------");
@@ -21,12 +20,10 @@ public class ShowMenuDsc {
         System.out.println(); // Line break
 
 
-        menuChoice(scanner, studentRepo);
-
-        scanner.close();
+        menuChoice(scanner);
     }
 
-    public static void menuChoice(Scanner scanner, StudentRepo studentRepo) {
+    public static void menuChoice(Scanner scanner) {
         try {
             System.out.print("Your choice: ");
             String value = scanner.nextLine();
@@ -58,13 +55,14 @@ public class ShowMenuDsc {
 
                 case "7":
                     System.out.println("-----------------------");
-                    Menu.menu(null,null,null,null);
+                    Menu.menu(scanner);
                     break;
                 default:
                     System.out.println("Invalid choice");
-                    menuChoice(scanner, studentRepo);
+                    menuChoice(scanner);
                     break;
             }
+            Menu.menu(scanner);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

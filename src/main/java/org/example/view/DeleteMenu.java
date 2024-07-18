@@ -1,5 +1,7 @@
 package org.example.view;
 
+
+import org.example.PublicInstances;
 import org.example.model.StudentRepo;
 
 import java.util.Scanner;
@@ -17,7 +19,7 @@ public class DeleteMenu {
         System.out.println(); // Line break
 
 
-        studentRepo.deleteStudent(id);
+        PublicInstances.studentRepo.deleteStudent(id);
 
     }
 

@@ -20,6 +20,6 @@ public class AverageStudentsInfo {
 
 
         //call the function to Edit student
-
+        Menu.menu(scanner);
     }
 }

@@ -1,11 +1,13 @@
 package org.example.view;
 
+import org.example.App;
+import org.example.PublicInstances;
 import org.example.model.StudentRepo;
 
 import java.util.Scanner;
 
 public class EditMenu {
-    public static void menu(Scanner scanner, StudentRepo studentRepo){
+    public static void menu(Scanner scanner){
         String lastname , firstname , grade ;
         int id, age;
         System.out.println(); // Line break
@@ -37,7 +39,7 @@ public class EditMenu {
 
         System.out.println(); // Line break
 
-        studentRepo.updateStudent(id,firstname,lastname, age, grade);
+        PublicInstances.studentRepo.updateStudent(id,firstname,lastname, age, grade);
 
     }
 }

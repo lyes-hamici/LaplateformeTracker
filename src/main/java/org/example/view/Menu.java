@@ -1,12 +1,8 @@
 package org.example.view;
-
-import org.example.model.*;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    public static void menu(Scanner scanner, GradesRepo gradesRepo, StudentRepo studentRepo, FileManager fileManager){
+    public static void menu(Scanner scanner){
         String text = "La Plateforme_ Tracker";
 
         int textLength = text.length();
@@ -57,7 +53,7 @@ public class Menu {
                     break;
 
                 case "3":
-                    //SearchMenu.menu(scanner, studentRepo);
+                    SearchMenu.menu(scanner);
                     break;
 
                 case "4":
@@ -65,23 +61,15 @@ public class Menu {
                     break;
 
                 case "5":
-                    //ImportExportMenu.menu(scanner);
+                    ImportExportMenu.menu(scanner);
                     break;
 
                 case "6":
-                    EditMenu.menu(scanner, studentRepo);
+                    EditMenu.menu(scanner);
                     break;
                 case "7":
-                    System.out.println("Statistics of La Plateforme");
-                    int gradesAverage = gradesRepo.schoolAverage();
-                    int ageAverage = 0;
-                    System.out.println("Age average: " + ageAverage + " - " + "Grades average: " + gradesAverage + " / 20");
-                    List<Student> students = studentRepo.getAllStudents();
-                    for (Student student : students)
-                    {
-                        student.setAverage(gradesRepo.studentAverage(student.getId()));
-                    }
-
+                   StatMenu.menu(scanner);
+                   break;
 
                 case "8":
                     System.out.println("-----------------------");

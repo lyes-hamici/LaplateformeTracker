@@ -1,7 +1,5 @@
 package org.example.view;
 
-import org.example.model.StudentRepo;
-
 import java.util.Scanner;
 
 public class StatMenu {
@@ -18,8 +16,6 @@ public class StatMenu {
 
 
         menuChoice(scanner);
-
-        scanner.close();
     }
 
     public static void menuChoice(Scanner scanner) {
@@ -44,7 +40,7 @@ public class StatMenu {
 
                 case "4":
                     System.out.println("-----------------------");
-                    Menu.menu(scanner,null,null,null); //change null with a getter for each element
+                    Menu.menu(scanner); //change null with a getter for each element
                     break;
                 default:
                     System.out.println("Invalid choice");

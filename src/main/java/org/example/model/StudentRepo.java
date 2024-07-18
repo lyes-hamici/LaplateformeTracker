@@ -1,5 +1,7 @@
 package org.example.model;
 
+import org.example.PublicInstances;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,11 +13,9 @@ import java.util.Scanner;
 
 public class StudentRepo {
     private Db db;
-    private GradesRepo gradesRepo;
-    public StudentRepo(Db db, GradesRepo gradesRepo)
+    public StudentRepo(Db db)
     {
         this.db = db;
-        this.gradesRepo = gradesRepo;
     }
 
     //---------------------------- Get Students -------------------------//
@@ -32,7 +32,7 @@ public class StudentRepo {
                 String grade = rs.getString("grade");
 
                 // Fetch grades for the student
-                List<Integer> grades = this.gradesRepo.getGradesForStudent(id);
+                List<Integer> grades = PublicInstances.gradesRepo.getGradesForStudent(id);
 
                 students.add(new Student(id, firstName, lastName, age, grade, grades));
             }
